@@ -1234,3 +1234,57 @@ if ( function_exists( 'hestia_setup_theme' ) ) {
 		}
 	}
 }
+
+// タグ選択式表示
+function re_register_post_tag_taxonomy() {
+global $wp_rewrite;
+$rewrite = array(
+'slug' => get_option('tag_base') ? get_option('tag_base') : 'tag',
+'with_front' => ! get_option('tag_base') || $wp_rewrite->using_index_permalinks(),
+'ep_mask' => EP_TAGS,
+);
+ 
+$labels = array(
+'name' => _x( 'Tags', 'taxonomy general name' ),
+'singular_name' => _x( 'Tag', 'taxonomy singular name' ),
+'search_items' => __( 'Search Tags' ),
+'popular_items' => __( 'Popular Tags' ),
+'all_items' => __( 'All Tags' ),
+'parent_item' => null,
+'parent_item_colon' => null,
+'edit_item' => __( 'Edit Tag' ),
+'view_item' => __( 'View Tag' ),
+'update_item' => __( 'Update Tag' ),
+'add_new_item' => __( 'Add New Tag' ),
+'new_item_name' => __( 'New Tag Name' ),
+'separate_items_with_commas' => __( 'Separate tags with commas' ),
+'add_or_remove_items' => __( 'Add or remove tags' ),
+'choose_from_most_used' => __( 'Choose from the most used tags' ),
+'not_found' => __( 'No tags found.' )
+);
+ 
+register_taxonomy( 'post_tag', 'post', array(
+'hierarchical' => true,
+'query_var' => 'tag',
+'rewrite' => $rewrite,
+'public' => true,
+'show_ui' => true,
+'show_admin_column' => true,
+'_builtin' => true,
+'labels' => $labels
+) );
+}
+add_action( 'init', 're_register_post_tag_taxonomy', 1 );
+
+// カテゴリー：文字削除
+add_filter( 'get_the_archive_title', function ($title) {
+    if ( is_category() ) {
+        $title = single_cat_title( '', false );
+    } elseif ( is_tag() ) {
+        $title = single_tag_title( '', false );
+    } elseif ( is_author() ) {
+        $title = '<span class="vcard">' . get_the_author() . '</span>' ;
+    }
+    return $title;
+});
+

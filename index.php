@@ -55,12 +55,58 @@ get_header();
 		</h1>
 		<p class="title-bottom-border"></p>
 		<p>
-			Appleで働く人々は、ただ製品を作っているだけではありません。あらゆる業界に革命をもたらす、ある種の驚きを生み出しています。驚異的なテクノロジーの開発から業界をリー
-			ドする環境への取り組みまで、私たちのすべての活動に革新をもたらすのは、多様な人々と彼らが生み出す多彩なアイデアです。あなたもAppleに参加し、協力してください。出会った時よりも良い世界を、未来に渡すために。
+			Rebは現役の大学編入生集団が運営するオンライン学習サイトです。<br>
+			未知の部分が多い”大学編入”に関して<br>
+			学校では教えてくれない<br>
+			ネットにも存在しない<br>
+			そんな生きた情報をお届けします。<br>
+			参考書の選び方や過去問の解き方など具体的な受験対策から、編入後の大学生活に関する情報まで幅広くコンテンツを配信します。<br>
+			また、Rebを運営する学生の趣味や大学での気づきなども配信する予定です。<br>
+			孤独な編入試験ですが、私たちはあなたの編入をサポートします。<br>
+			<div class="aboutus-more">
+				<a href="http://reb.wp.xdomain.jp/about-us">
+					More
+				</a>
+			</div>	
 		</p>
 	</div>
 
-	<div class="each-con con-3 searchbox-wrapper">
+	<div class="each-con con-3 department-wrapper">
+		<div class="title-wrapper">
+			<h1>
+				学部で探す
+			</h1>
+			<p class="title-bottom-border"></p>
+		</div>
+		<div class="searchbox-content">
+			<ul>
+				<?php wp_list_categories('orderby=ID&title_li='); ?>
+			</ul>
+		</div>
+	</div>
+
+	<div class="each-con con-4 univ-wrapper">
+		<div class="title-wrapper">
+			<h1>
+				大学で探す
+			</h1>
+			<p class="title-bottom-border"></p>
+		</div>
+		<div class="searchbox-content univ-list">
+			<ul>
+				<?php
+				$posttags = get_tags();
+				if ($posttags) {
+					foreach($posttags as $tag) {
+						echo '<li><a href="'. get_tag_link($tag->term_id) .'">' . $tag->name . '</a></li>';
+					}
+				}
+				?>
+			</ul>
+		</div>
+	</div>
+
+	<div class="each-con con-5 searchbox-wrapper">
 		<div class="title-wrapper">
 			<h1>
 				コンテンツを探す
@@ -70,7 +116,6 @@ get_header();
 		<div class="searchbox-content">
 			<div id="search">
 				<form method="get" action="<?php bloginfo( 'url' ); ?>">
-					<input name="s" id="s" type="text" />
 					<?php wp_dropdown_categories('depth=0&orderby=name&hide_empty=1&show_option_all=学部選択'); ?>
 					<?php $tags = get_tags(); if ( $tags ) : ?>
 					<select name='tag' id='tag'>
@@ -86,62 +131,109 @@ get_header();
 	</div>
 </div>
 
-<div class="each-con con-4 newcontents-wrapper">
+<div class="each-con con-6 newcontents-wrapper">
 	<div class="title-wrapper">
 		<h1>
-			新着コンテンツ
+			What's NEW!
 		</h1>
 		<p class="title-bottom-border"></p>
-		<div class="<?php echo hestia_layout(); ?>">
-			<div class="hestia-blogs">
-				<div class="container">
-					<div class="row">
+	</div>
+	<div class="<?php echo hestia_layout(); ?>">
+		<div class="hestia-blogs">
+			<div class="container">
+				<div class="row">
+					<?php
+					if ( $hestia_blog_sidebar_layout === 'sidebar-left' ) {
+						get_sidebar();
+					}
+					?>
+					<div class="<?php echo esc_attr( $class_to_add ); ?>">
 						<?php
-						if ( $hestia_blog_sidebar_layout === 'sidebar-left' ) {
-							get_sidebar();
-						}
-						?>
-						<div class="<?php echo esc_attr( $class_to_add ); ?>">
-							<?php
 
-							if ( have_posts() ) :
+						if ( have_posts() ) :
 
-								while ( have_posts() ) :
-									the_post();
-									if ( ( $hestia_alternative_blog_layout === 'blog_alternative_layout' ) && ( $wp_query->current_post % 2 == 0 ) ) {
-										get_template_part( 'template-parts/content', 'alternative' );
-									} else {
-										get_template_part( 'template-parts/content' );
-									}
+							while ( have_posts() ) :
+								the_post();
+								if ( ( $hestia_alternative_blog_layout === 'blog_alternative_layout' ) && ( $wp_query->current_post % 2 == 0 ) ) {
+									get_template_part( 'template-parts/content', 'alternative' );
+								} else {
+									get_template_part( 'template-parts/content' );
+								}
 
-								endwhile;
-								the_posts_pagination();
-							else :
-								get_template_part( 'template-parts/content', 'none' );
-							endif;
-							?>
-						</div>
-						<?php
-						if ( $hestia_blog_sidebar_layout === 'sidebar-right' ) {
-							get_sidebar();
-						}
+							endwhile;
+							the_posts_pagination();
+						else :
+							get_template_part( 'template-parts/content', 'none' );
+						endif;
 						?>
 					</div>
+					<?php
+					if ( $hestia_blog_sidebar_layout === 'sidebar-right' ) {
+						get_sidebar();
+					}
+					?>
 				</div>
 			</div>
-			<?php do_action( 'hestia_after_archive_content' ); ?>
 		</div>
+		<?php do_action( 'hestia_after_archive_content' ); ?>
 	</div>
+</div>
 
-	<div class="each-con con-5 wordsearch-wrapper">
-		<div class="title-wrapper">
-			<h1>
-				単語検索
-			</h1>
-			<p class="title-bottom-border"></p>
+<div class="each-con con-7 wordsearch-wrapper">
+	<div class="title-wrapper">
+		<h1>
+			キーワード
+		</h1>
+		<p class="title-bottom-border"></p>
+		<div class="con-type-box">
+			<?php
+			$terms = get_terms('con_type');
+			foreach ( $terms as $term ) {
+				echo '<p><a href="'.get_term_link($term).'">'.$term->name.'</a></p>';
+			}
+			?>
 		</div>
 	</div>
 </div>
 
+<div class="index-recruit">
+	<a href="http://reb.wp.xdomain.jp/recruit">
+		Rebのメンバーになる
+	</a>
+</div>	
+</div>
+</div>
+
 
 <?php get_footer(); ?>
+
+<style type="text/css">
+.searchbox-content,.univ-list {¥
+	text-align: center;
+}
+.univ-list ul {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: auto;
+}
+.searchbox-content ul,.univ-list ul {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+.univ-list ul li {
+	width: 90% !important;
+}
+.searchbox-content ul li,.univ-list ul li {
+	border: 3px solid gray;
+	list-style-type: none;
+	margin: 10px auto;
+	width: 70%;
+	padding: 10px 0;
+}
+.searchbox-content ul li a,.univ-list ul li a {
+	padding: 10px;
+	font-size: 18px;
+	color: #4e4c4c;
+}
+</style>

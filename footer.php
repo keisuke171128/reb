@@ -8,7 +8,11 @@
  * @since Hestia 1.0
  */
 ?>
-			<?php do_action( 'hestia_do_footer' ); ?>
+
+<div class="footer-con">
+	<p>Copy right reserved by Reb</p>
+</div>
+
 		</div>
 	</div>
 <?php wp_footer(); ?>
