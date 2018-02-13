@@ -60,9 +60,6 @@ get_header();
 			学校では教えてくれない<br>
 			ネットにも存在しない<br>
 			そんな生きた情報をお届けします。<br>
-			参考書の選び方や過去問の解き方など具体的な受験対策から、編入後の大学生活に関する情報まで幅広くコンテンツを配信します。<br>
-			また、Rebを運営する学生の趣味や大学での気づきなども配信する予定です。<br>
-			孤独な編入試験ですが、私たちはあなたの編入をサポートします。<br>
 			<div class="aboutus-more">
 				<a href="http://reb.wp.xdomain.jp/about-us">
 					More
@@ -78,6 +75,7 @@ get_header();
 			</h1>
 			<p class="title-bottom-border"></p>
 		</div>
+		<div class="index-logo"></div>
 		<div class="searchbox-content">
 			<ul>
 				<?php wp_list_categories('orderby=ID&title_li='); ?>
@@ -92,6 +90,7 @@ get_header();
 			</h1>
 			<p class="title-bottom-border"></p>
 		</div>
+		<div class="index-logo"></div>
 		<div class="searchbox-content univ-list">
 			<ul>
 				<?php
@@ -235,5 +234,17 @@ get_header();
 	padding: 10px;
 	font-size: 18px;
 	color: #4e4c4c;
+}
+@media (max-width: 768px) {
+	.container .row div h1 {
+		text-align: center;
+		font-size: 60px !important;
+		letter-spacing: 10px;
+		/*background-image: url(http://reb.wp.xdomain.jp/wp-content/uploads/2018/02/smoke-659466_640.jpg);*/
+		background-image: url(http://reb.wp.xdomain.jp/wp-content/uploads/2018/02/colour-1885352_640.jpg);
+		background-position: center;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
 }
 </style>

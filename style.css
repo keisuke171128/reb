@@ -1,3 +1,78 @@
+.author-thumbanil img {
+  border-radius: 50%;
+}
+.member-wrapper .authors a:first-child{
+  display: none;
+}
+.author-thumbanil,.author-text {
+  padding: 5px;
+}
+.whole-wrapper {
+  margin-top: 100px;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+.author-content {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+}
+.index-logo {
+  background-image: url(http://lila.wp.xdomain.jp/wp-content/uploads/2018/01/web.png);
+  background-position: center;
+  background-size: cover;
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+.header-filter-gradient {
+  background: black !important;
+}
+.con-type-box p a {
+  color: #00aab5;
+}
+.title-logo-wrapper a {
+  font-size: 27px !important;
+}
+.single-cattag-wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-auto-rows: auto;
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+/*消す*/
+.single-department-cat-item {
+  margin: 0;
+}
+.single-department-cat,.single-entry-tags {
+  font-size:0;
+}
+.single-department-cat:before,.single-entry-tags:before {
+  font-size: 20px; content: "";
+  display: none;
+}
+/*出す*/
+.single-department-cat p a,.single-entry-tags span a {
+  font-size: 20px;
+  color: black;
+}
+
+.single-department-cat p,.single-entry-tags span {
+  font-weight: bold;
+  display: block !important;
+}
+.single-department-cat p {
+  background-color: #337ab700 !important;
+  padding: 0; 
+}
+
+
+
 .aboutus-more a {
   color: black;
 }
@@ -33,6 +108,7 @@
 }
 .aboutus-wrapper p {
   font-size: 17px;
+  letter-spacing: 10px;
 }
 .footer-con {
   text-align: center;
@@ -62,10 +138,10 @@
 .each-con h1 {
   text-align: center;
   margin-bottom: 5px;
-  color: #4e4c4c;
+  color: #03a7bb;
 }
 .title-bottom-border {
-  border-bottom: 3px solid #4e4c4c;
+  border-bottom: 3px solid #03a7bb;
   width: 50%;
   margin: 0 auto 20px auto;
 }
@@ -970,7 +1046,9 @@ aside .widget a {
     font-size: 17px;
   }
 }
+/*sumaho*/
 @media (max-width: 768px) {
+
   h4.author {
     font-size: 16px;
   }
@@ -1247,7 +1325,7 @@ h2.hestia-title {
 --------------------------------------------------------------*/
 body {
   direction: ltr;
-  background-color: #e5e5e5;
+  background-color: #e5e5e566;
 }
 
 * {
@@ -2503,7 +2581,7 @@ body:not(.home) .navbar-default .navbar-nav > .active > a, body:not(.home) .navb
 
 .navbar {
   color: white;
-  background-color: #00000061;
+  background-color: #000000b5;
   -webkit-transition: none;
   transition: none;
 }
@@ -5407,8 +5485,8 @@ aside .widget a {
 .main-raised {
   margin: -60px 30px 0;
   border-radius: 6px 6px 0 0;
-  -webkit-box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0;
+  box-shadow: 0;
 }
 
 .home .main-raised section:first-of-type {
@@ -8366,7 +8444,7 @@ li.yith_magnifier_thumbnail a img {
   .blog .page-header.header-small .container,
   .archive .page-header.header-small .container,
   .category .page-header.header-small .container {
-    padding: 170px 15px 90px;
+    padding: 25 0px 15px 90px;
   }
   .single-post .page-header.header-small .container .hestia-title,
   .page .page-header.header-small .container .hestia-title,

@@ -45,6 +45,22 @@ $class_to_add = hestia_get_content_classes( $hestia_blog_sidebar_layout, 'sideba
 	}
 	?>
 	<div class=" <?php echo esc_attr( $class_to_add ); ?>">
+		<div class="col-md-6 single-cattag-wrapper">
+			<!-- 大学名ータグ -->
+			<?php the_tags( '<div class="single-entry-tags">' . esc_html__( 'Tags: ', 'hestia' ) . '<span class="single-entry-tag">', '</span><span class="single-entry-tag">', '</span></div>' ); ?>
+			
+			<!-- 学部名ーカテゴリ -->
+			<div class="single-department-cat">
+				<?php esc_html_e( 'Categories:', 'hestia' ); ?>
+				<?php
+				$categories = get_the_category( $post->ID );
+				foreach ( $categories as $category ) {
+					echo '<p class="single-department-cat-item"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a></p>';
+				}
+				?>
+			</div>
+
+		</div>
 		<article id="post-<?php the_ID(); ?>" class="section section-text">
 			<?php
 			the_content();
@@ -62,17 +78,7 @@ $class_to_add = hestia_get_content_classes( $hestia_blog_sidebar_layout, 'sideba
 
 		<div class="section section-blog-info">
 			<div class="row">
-				<div class="col-md-6">
-					<div class="entry-categories"><?php esc_html_e( 'Categories:', 'hestia' ); ?>
-						<?php
-						$categories = get_the_category( $post->ID );
-						foreach ( $categories as $category ) {
-							echo '<span class="label label-primary"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a></span>';
-						}
-						?>
-					</div>
-					<?php the_tags( '<div class="entry-tags">' . esc_html__( 'Tags: ', 'hestia' ) . '<span class="entry-tag">', '</span><span class="entry-tag">', '</span></div>' ); ?>
-				</div>
+				
 				<?php do_action( 'hestia_blog_social_icons' ); ?>
 			</div>
 			<hr>
