@@ -21,13 +21,6 @@
 				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 					<?php echo $post_thumbnail_url; ?>
 				</a>
-			</div>
-		</div>
-
-		<div class="col-ms-7 col-sm-7">
-			<?php else : ?>
-			<div class="col-sm-12">
-				<?php endif; ?>
 				<h6 class="category text-info"><?php hestia_category(); ?></h6>
 				<?php
 				the_title(
@@ -40,6 +33,14 @@
 					), '</a></h2>'
 				);
 					?>
+			</div>
+		</div>
+
+		<div class="col-ms-7 col-sm-7">
+			<?php else : ?>
+			<div class="col-sm-12">
+				<?php endif; ?>
+				
 				<div class="card-description">
 					<p>
 						<?php

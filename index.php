@@ -75,7 +75,7 @@ get_header();
 			</h1>
 			<p class="title-bottom-border"></p>
 		</div>
-		<div class="index-logo"></div>
+		<div class="index-logo logo-depar"></div>
 		<div class="searchbox-content">
 			<ul>
 				<?php wp_list_categories('orderby=ID&title_li='); ?>
@@ -90,7 +90,7 @@ get_header();
 			</h1>
 			<p class="title-bottom-border"></p>
 		</div>
-		<div class="index-logo"></div>
+		<div class="index-logo logo-univ"></div>
 		<div class="searchbox-content univ-list">
 			<ul>
 				<?php
