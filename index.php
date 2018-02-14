@@ -148,9 +148,7 @@ get_header();
 					?>
 					<div class="<?php echo esc_attr( $class_to_add ); ?>">
 						<?php
-
 						if ( have_posts() ) :
-
 							while ( have_posts() ) :
 								the_post();
 								if ( ( $hestia_alternative_blog_layout === 'blog_alternative_layout' ) && ( $wp_query->current_post % 2 == 0 ) ) {
@@ -158,7 +156,6 @@ get_header();
 								} else {
 									get_template_part( 'template-parts/content' );
 								}
-
 							endwhile;
 							the_posts_pagination();
 						else :

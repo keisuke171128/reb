@@ -1,4 +1,25 @@
-
+.searchbox-content ul li:first-child, .univ-list ul li:first-child {
+  border: 3px solid #0000003d;
+}
+.searchbox-content ul li:first-child a, .univ-list ul li:first-child a {
+  color: #0000003d;
+}
+.contents-wrapper {
+  padding: 0 20px;
+}
+.card-image .text-info {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: auto; 
+}
+.card-image .text-info{
+  position: absolute;
+  bottom: 7px;
+  margin-top: 0;
+  padding: 5px 10px;
+  background-color: #ffffffd4;
+  width: 100%;
+}
 .contact-wrapper {
   text-align: center;
 }
@@ -70,7 +91,7 @@
 /*出す*/
 .single-department-cat p a,.single-entry-tags span a {
   font-size: 20px;
-  color: black;
+  color: #717171;
 }
 
 .single-department-cat p,.single-entry-tags span {
@@ -1186,7 +1207,7 @@ h2.hestia-title {
 }
 
 .description, .card-description, .footer-big {
-  color: #999999;
+  color: #6b6969;
 }
 
 .subscribe-description {

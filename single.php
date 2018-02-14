@@ -72,11 +72,12 @@ get_header();
 		}
 		.container .row div article h1,.container .row div article h2,.container .row div article h3,.container .row div article h4,.container .row div article h5,.container .row div article h6 {
 			border-left: 1px solid gray;
-			border-right: 	1px solid gray;
+			border-right: 1px solid gray;
 			text-align: center;
-			width: 90%;
-			margin: 10px auto !important;
+			width: 95%;
+			margin: 20px auto !important;
 			padding: 10px;
+			font-weight: bold;
 		}
 		.card-profile {
 			margin-top: 0;
