@@ -1,3 +1,52 @@
+.sigle-author-wrapper .card-profile .row .col-md-10 {
+  margin-top: 10px;
+}
+.container .row .col-md-10 h1 {
+  line-height: 50px;
+}
+.hestia-blogs {
+  padding: 30px 0 !important;
+}
+.index-wrapper .con-6 .main .hestia-blogs .container {
+  padding: 0 !important;
+}
+article .row .col-ms-7,.container,.container .row .col-md-10,article .col-ms-5 {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+article .row .col-ms-7 .author {
+  font-size: 11px !important;
+}
+article .row .col-ms-7 h6 {
+  margin-top: 0;
+}
+article .row .col-ms-7 p {
+  font-size: 15px !important;
+}
+.row {
+  margin: 0;
+}
+article .row .col-ms-5 {
+  margin: auto 0;
+}
+.card-image {
+  height: auto;
+}
+.card-description {
+  display: none;
+}
+.row:before,.row:after {
+  display: none;
+}
+article .row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: auto;
+}
+#poststuff {
+  min-width: 100%;
+}
 .searchbox-content ul li:first-child, .univ-list ul li:first-child {
   border: 3px solid #0000003d;
 }
@@ -1080,7 +1129,10 @@ aside .widget a {
 }
 /*sumaho*/
 @media (max-width: 768px) {
-
+  .wrap #poststuff {
+    min-width: 100% !important;
+    width: 100%;
+  }
   h4.author {
     font-size: 16px;
   }
@@ -8781,8 +8833,8 @@ footer .wpml-ls-item-legacy-dropdown-click a {
 .col-ms-12 {
   position: relative;
   min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 @media (min-width: 481px) and (max-width: 767px) {

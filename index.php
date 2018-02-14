@@ -175,22 +175,6 @@ get_header();
 	</div>
 </div>
 
-<div class="each-con con-7 wordsearch-wrapper">
-	<div class="title-wrapper">
-		<h1>
-			キーワード
-		</h1>
-		<p class="title-bottom-border"></p>
-		<div class="con-type-box">
-			<?php
-			$terms = get_terms('con_type');
-			foreach ( $terms as $term ) {
-				echo '<p><a href="'.get_term_link($term).'">'.$term->name.'</a></p>';
-			}
-			?>
-		</div>
-	</div>
-</div>
 
 <div class="index-recruit">
 	<a href="http://reb.wp.xdomain.jp/recruit">

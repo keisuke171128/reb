@@ -53,6 +53,6 @@ h4 {
 	margin: 0;
 }
 .author-text .author-name h4,.author-text .author-description {
-	color: #05858e;
+	color: #535656;
 }
 </style>

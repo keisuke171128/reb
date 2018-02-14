@@ -85,4 +85,8 @@ get_header();
 		.who-author:before {
 			font-size: 0;
 		}
+		.section,.container .row .col-md-12 h2,.card-title {
+			padding: 0 !important;
+			margin: 0 !important;
+		}
 	</style>

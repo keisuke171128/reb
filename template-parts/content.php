@@ -21,23 +21,24 @@ id="post-<?php the_ID(); ?>" <?php ( is_sticky() && is_home() && ! is_paged() ) 
 				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 					<?php echo $post_thumbnail_url; ?>
 				</a>
-				<h6 class="category text-info"><?php hestia_category(); ?></h6>
 			</div>
 		</div>
 
+
 		<div class="col-ms-7 col-sm-7">
+			<h6 class="category text-info"><?php hestia_category(); ?></h6>
 		<?php else : ?>
 			<div class="col-sm-12">
 			<?php endif; ?>
 			<?php
 			the_title(
 				sprintf(
-					'<h2 class="card-title entry-title"><a href="%s" title="%s" rel="bookmark">', esc_url( get_permalink() ), the_title_attribute(
+					'<p class="card-title entry-title"><a href="%s" title="%s" rel="bookmark">', esc_url( get_permalink() ), the_title_attribute(
 						array(
 							'echo' => false,
 						)
 					)
-				), '</a></h2>'
+				), '</a></p>'
 			);
 			?>
 			<div class="card-description">
