@@ -28,15 +28,31 @@ get_header(); ?>
 		<!-- １ページ表示数指定 but　若干失敗-->
 		<?php query_posts('post_type=post&paged=&posts_per_page=5'.$paged); ?>
 		<?php
-		if ( have_posts() ) :
-			while ( have_posts() ) :
-				the_post();
-				get_template_part( 'template-parts/content', 'alternative' );
-			endwhile;
-			the_posts_pagination();
-		else :
-			get_template_part( 'template-parts/content', 'none' );
-		endif;
+		if ( $hestia_blog_sidebar_layout === 'sidebar-left' ) {
+			get_sidebar();
+		}
+		?>
+		<div class="<?php echo esc_attr( $class_to_add ); ?>">
+			<?php
+			if ( have_posts() ) :
+				while ( have_posts() ) :
+					the_post();
+					if ( ( $hestia_alternative_blog_layout === 'blog_alternative_layout' ) && ( $wp_query->current_post % 2 == 0 ) ) {
+						get_template_part( 'template-parts/content', 'alternative' );
+					} else {
+						get_template_part( 'template-parts/content' );
+					}
+				endwhile;
+				the_posts_pagination();
+			else :
+				get_template_part( 'template-parts/content', 'none' );
+			endif;
+			?>
+		</div>
+		<?php
+		if ( $hestia_blog_sidebar_layout === 'sidebar-right' ) {
+			get_sidebar();
+		}
 		?>
 		<?php wp_reset_query(); ?>
 	</div>

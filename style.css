@@ -38,7 +38,7 @@ article .row .col-ms-5 {
 .row:before,.row:after {
   display: none;
 }
-article .row {
+.newcontents-wrapper .main .hestia-blogs .container .row div article .row,.container div div article .row,.contents-wrapper article .row  {
   width: 100%;
   display: grid;
   grid-template-columns: 40% 60%;
@@ -119,6 +119,7 @@ article .row {
   background-color: #80808021;
   padding: 5px;
   text-align: center;
+  margin-bottom: 30px;
 }
 .single-cattag-content {
   display: grid;
@@ -7599,7 +7600,7 @@ li.yith_magnifier_thumbnail a img {
   }
 
   .navbar .navbar-brand {
-    padding: 0 15px;
+    padding: 0 30px;
   }
 
   .navbar .navbar-nav > li > a {
