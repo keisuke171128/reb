@@ -45,22 +45,34 @@ $class_to_add = hestia_get_content_classes( $hestia_blog_sidebar_layout, 'sideba
 	}
 	?>
 	<div class=" <?php echo esc_attr( $class_to_add ); ?>">
-		<div class="col-md-6 single-cattag-wrapper">
-			<!-- 大学名ータグ -->
-			<?php the_tags( '<div class="single-entry-tags">' . esc_html__( 'Tags: ', 'hestia' ) . '<span class="single-entry-tag">', '</span><span class="single-entry-tag">', '</span></div>' ); ?>
-			
-			<!-- 学部名ーカテゴリ -->
-			<div class="single-department-cat">
-				<?php esc_html_e( 'Categories:', 'hestia' ); ?>
-				<?php
-				$categories = get_the_category( $post->ID );
-				foreach ( $categories as $category ) {
-					echo '<p class="single-department-cat-item"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a></p>';
-				}
-				?>
-			</div>
-
+		<div class="sigle-author-wrapper">
+			<?php
+			$author_description = get_the_author_meta( 'description' );
+			if ( ! empty( $author_description ) ) :
+				hestia_author_box();
+			endif;
+			?>
 		</div>
+
+		<div class="col-md-6 single-cattag-wrapper">
+			<p>この記事の対象</p>
+			<div class="single-cattag-content">
+				<!-- 大学名ータグ -->
+				<?php the_tags( '<div class="single-entry-tags">' . esc_html__( 'Tags: ', 'hestia' ) . '<span class="single-entry-tag">', '</span><span class="single-entry-tag">', '</span></div>' ); ?>
+
+				<!-- 学部名ーカテゴリ -->
+				<div class="single-department-cat">
+					<?php esc_html_e( 'Categories:', 'hestia' ); ?>
+					<?php
+					$categories = get_the_category( $post->ID );
+					foreach ( $categories as $category ) {
+						echo '<p class="single-department-cat-item"><a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a></p>';
+					}
+					?>
+				</div>
+			</div>
+		</div>
+		
 		<article id="post-<?php the_ID(); ?>" class="section section-text">
 			<?php
 			the_content();
@@ -83,10 +95,10 @@ $class_to_add = hestia_get_content_classes( $hestia_blog_sidebar_layout, 'sideba
 			</div>
 			<hr>
 			<?php
-			$author_description = get_the_author_meta( 'description' );
-			if ( ! empty( $author_description ) ) :
-				hestia_author_box();
-			endif;
+			// $author_description = get_the_author_meta( 'description' );
+			// if ( ! empty( $author_description ) ) :
+			// 	hestia_author_box();
+			// endif;
 			// if ( comments_open() || get_comments_number() ) :
 			// 	comments_template();
 			// endif;

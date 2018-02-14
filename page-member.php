@@ -31,7 +31,7 @@ get_header(); ?>
 				<div class="author-profile author-content">
 					<div class="author-thumbanil"><?php echo get_avatar( $uid ,300 ); ?></div>
 					<div class="author-text">
-						<div class="author-name"><h3><?php echo $user->display_name ; ?></h3></div>
+						<div class="author-name"><h4><?php echo $user->display_name ; ?></h4></div>
 						<div class="author-description"><?php echo $user->user_description ; ?></div>
 					</div>
 				</div>
@@ -48,5 +48,11 @@ get_header(); ?>
 h3 {
 	margin: 0;
 	padding: 0;
+}
+h4 {
+	margin: 0;
+}
+.author-text .author-name h4,.author-text .author-description {
+	color: #05858e;
 }
 </style>

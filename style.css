@@ -1,3 +1,4 @@
+
 .contact-wrapper {
   text-align: center;
 }
@@ -9,6 +10,7 @@
 }
 .author-thumbanil,.author-text {
   padding: 5px;
+  margin: auto;
 }
 .whole-wrapper {
   margin-bottom: 30px;
@@ -16,8 +18,9 @@
 }
 .author-content {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 30% 70%;
   grid-template-rows: auto;
+  margin-bottom: 20px;
 }
 .index-logo {
   background-image: url(http://lila.wp.xdomain.jp/wp-content/uploads/2018/01/web.png);
@@ -38,14 +41,15 @@
   font-size: 27px !important;
 }
 .single-cattag-wrapper {
+  background-color: #80808021;
+  padding: 5px;
+  text-align: center;
+}
+.single-cattag-content {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-auto-rows: auto;
   width: 100%;
-  text-align: center;
-  margin: 20px 0;
-  border-left: 1px solid gray;
-  border-right: 1px solid gray;
 }
 /*消す*/
 .single-department-cat-item {
@@ -3130,7 +3134,7 @@ body.admin-bar .navbar {
   display: inline-block;
   position: relative;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   border-radius: 6px;
   color: rgba(0, 0, 0, 0.87);
   background: #fff;
